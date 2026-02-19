@@ -1,0 +1,40 @@
+.loginpage{
+    background-color: rgb(146, 146, 150,0.4);
+    width: 30vw;
+    height: 40vh;
+    border-radius: 3vh;
+}
+.loginpage .card{
+    /* background-color: blue; */
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    border-radius: 3vh;
+    padding-top: 20px;
+}
+.loginpage .card input{
+    height: 5vh;
+    width: 25vw;
+}
+.loginpage .card label{
+    color: white;
+}
+/* .loginpage .card button{
+    height: 5vh;
+    width: 8vw;
+    font-size: large;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+} */
+.loginpage .card p{
+    color: white;
+}
+.loginpage .card p .signup{
+    color: black;
+    text-decoration: none;
+}
+.loginpage .card input:focus {
+    border-color:none;
+    outline: none;
+}
