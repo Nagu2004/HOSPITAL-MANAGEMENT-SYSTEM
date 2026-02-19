@@ -1,0 +1,32 @@
+.registerpage{
+    background-color: rgb(146, 146, 150,0.4);
+    height: 50vh;
+    width: 30vw;
+    text-align: center;
+    align-content: center;
+
+}
+.registerpage input{
+    height: 5vh;
+    width: 23vw;
+}
+.registerpage input:focus{
+    border: none;
+    outline: none;
+}
+.registerpage select{
+    height: 5vh;
+    width: 15vw;
+}
+.registerpage select:focus{
+    outline: none;
+}
+
+.registerpage button{
+    height: 5vh;
+    width: 10vw;
+    font-size: large;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
