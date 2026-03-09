@@ -5,7 +5,7 @@ from .models import Users
 from rest_framework.views import APIView
 from .serializers import LoginSerializer
 from rest_framework.response import Response
-from rest_framework.status import HTTP_201_CREATED,HTTP_400_BAD_REQUEST
+from rest_framework.status import HTTP_201_CREATED,HTTP_400_BAD_REQUEST,HTTP_200_OK
 # Create your views here.
 class LoginInsert(APIView):
     def get(self,request):
@@ -28,4 +28,6 @@ class LoginCheck(APIView):
         password=request.data.get('password')
         user=Users.objects.get(username=username,password=password)
         print(user.username,user.password,user.role)
-        return HttpResponse('posted')
+        e_obj=LoginSerializer(user)
+        print(e_obj.data.get('role'))
+        return Response(e_obj.data['role'],status=HTTP_200_OK)

@@ -11,6 +11,7 @@ class Department(models.Model):
 
 class Doctor(models.Model):
     doc_id=models.IntegerField(primary_key=True)
+    doc_name=models.CharField(max_length=30,null=True)
     dept_id=models.ForeignKey(Department,on_delete=models.SET_NULL,null=True)
     specialization=models.CharField(max_length=20)
     experience_years=models.IntegerField()

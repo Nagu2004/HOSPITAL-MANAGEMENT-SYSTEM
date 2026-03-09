@@ -16,13 +16,23 @@ function Loginpage(){
         username:usernameref.current.value,
         password:passref.current.value,
         };
-        axios.post('http://127.0.0.1:8000/login/logincheck/',data).then((response)=>{
-            console.log('ok');
+        axios.post('http://127.0.0.1:8000/login/logincheck/',data).then((res)=>{
+            if (res.data == 'DOCTOR'){
+                navigate('/doctor');
+            }
+            else if (res.data=='PATIENT'){
+                navigate('/patient');
+            }
+            else{
+                console.log(res.data);
+                alert('enter valid credentials')
+            }
         }).catch((error)=>{
             console.log(error);
         })
     };
     return (
+        <center>
         <div className="loginpage">
             <div className="card">
                 <label htmlFor="">
@@ -34,7 +44,8 @@ function Loginpage(){
                 <button onClick={login}>LOGIN</button><br /><br />  
                 <p>if you don't have account <button className='signin' onClick={register}>SIGN UP</button></p>
             </div>
-        </div>  
-    );
+        </div>
+        </center>  
+    );  
 }
 export default Loginpage;
