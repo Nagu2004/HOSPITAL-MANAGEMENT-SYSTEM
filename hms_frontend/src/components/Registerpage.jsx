@@ -27,6 +27,7 @@ function Registerpage(){
 
         }
     return (
+        <center>
         <div className="registerpage">
             <label htmlFor="">
                 <input type="text" placeholder="ENTER USER ID" ref={idref}/>
@@ -49,6 +50,7 @@ function Registerpage(){
             </label><br /><br />
             <button onClick={login}>REGISTER</button>
         </div>
+        </center>
     );
 }
 export default Registerpage;

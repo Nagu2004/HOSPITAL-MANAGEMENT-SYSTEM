@@ -30,4 +30,4 @@ class LoginCheck(APIView):
         print(user.username,user.password,user.role)
         e_obj=LoginSerializer(user)
         print(e_obj.data.get('role'))
-        return Response(e_obj.data['role'],status=HTTP_200_OK)
+        return Response(e_obj.data,status=HTTP_200_OK)

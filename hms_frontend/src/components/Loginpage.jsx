@@ -17,11 +17,11 @@ function Loginpage(){
         password:passref.current.value,
         };
         axios.post('http://127.0.0.1:8000/login/logincheck/',data).then((res)=>{
-            if (res.data == 'DOCTOR'){
+            if (res.data.role == 'DOCTOR'){
                 navigate('/doctor');
             }
-            else if (res.data=='PATIENT'){
-                navigate('/patient');
+            else if (res.data.role=='PATIENT'){
+                navigate('/patient',{state:{name:res.data.username}});
             }
             else{
                 console.log(res.data);
