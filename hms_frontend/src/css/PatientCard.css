@@ -1,0 +1,11 @@
+.patientcard .card{
+    margin-top: 10vh;
+    width: 20vw;
+    height: 25vh;
+    border: 2px solid blue;
+    margin-left: 4vw;
+    margin-bottom: 1VH;
+}
+.patientcard .name{
+    margin-left:4vw;
+}

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import "../css/PatientPage.css"
 import { useLocation } from "react-router-dom";
+import PatientCard from "./PatientCard";
 function PatientPage(){
     let [docdetails,setDocdetails]=useState([]);
     let location =useLocation();
@@ -21,7 +22,7 @@ function PatientPage(){
     return (
         <div className="patientpage">
             <div className="docdetails">  
-                <p>hii,{name}</p>
+                <p>HII, {name} HOPE YOU ARE DOING WELL</p>
             <table cellSpacing={0} border={1}>
                 <tr><th>DOCTOR ID</th><th>DOCTOR_NAME</th><th>SPECIALIZATION</th><th>EXPERIENCE IN YRS</th></tr>
             {
@@ -30,6 +31,12 @@ function PatientPage(){
                 })
             }
             </table>
+            </div>
+            <div className="card">
+            <PatientCard name="BOOK AN APPOINTMENT"/>
+            <PatientCard name="OUR SPECIALITIES"/>
+            <PatientCard name="OUR DOCTORS"/>
+            <PatientCard name="MEDICAL RECORDS"/>
             </div>
         </div>
     );

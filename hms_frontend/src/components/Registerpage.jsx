@@ -4,7 +4,6 @@ import { useRef } from "react";
 import axios from 'axios';
 function Registerpage(){
     let navigate=useNavigate();
-        let idref=useRef();
         let usernameref=useRef();
         let emailref=useRef();
         let passref=useRef();
@@ -29,9 +28,6 @@ function Registerpage(){
     return (
         <center>
         <div className="registerpage">
-            <label htmlFor="">
-                <input type="text" placeholder="ENTER USER ID" ref={idref}/>
-            </label><br /><br />
             <label htmlFor="">
                 <input type="text" placeholder="ENTER USERNAME" ref={usernameref}/>
             </label><br /><br />

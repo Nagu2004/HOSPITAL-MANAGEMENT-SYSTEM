@@ -34,7 +34,7 @@ function Loginpage(){
     return (
         <center>
         <div className="loginpage">
-            <div className="card">
+            <div className="card2">
                 <label htmlFor="">
                     <input type="text" placeholder='enter your username ' ref={usernameref}/>
                 </label><br /><br />
