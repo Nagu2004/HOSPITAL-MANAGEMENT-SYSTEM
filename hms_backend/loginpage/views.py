@@ -6,19 +6,42 @@ from rest_framework.views import APIView
 from .serializers import LoginSerializer
 from rest_framework.response import Response
 from rest_framework.status import HTTP_201_CREATED,HTTP_400_BAD_REQUEST,HTTP_200_OK
+from doctors.models import Doctor,Department
+from patient.models import Patient
 # Create your views here.
 class LoginInsert(APIView):
     def get(self,request):
         data=Users.objects.all()
         s_obj=LoginSerializer(data,many=True)
         return Response(s_obj.data)
-    def post(self,request):#http://127.0.0.1:8000/login/logininsert/
-        s_obj=LoginSerializer(data=request.data)
-        if s_obj.is_valid():
-            s_obj.save()
+    def post(self,request):
+        if request.data['role']=='DOCTOR':
+            username=request.data['username']
+            email=request.data['email']
+            password=request.data['password']
+            role=request.data['role']
+            u_obj=Users.objects.create(username=username,email=email,password=password,role=role)
+            id=u_obj.user_id
+            specialization = request.data['specialization']
+            try:
+                dept = Department.objects.get(name=specialization)
+            except Department.DoesNotExist:
+                dept = Department.objects.create(
+                    name=specialization,
+                    description=specialization + " expert"
+                )
+            Doctor(doc_id=id,doc_name=username,dept_id=dept,specialization=request.data['specialization'],experience_years=request.data['experience'],consultion_fee=request.data['fee'],phone_no=request.data['phoneno']).save()
             return Response(status=HTTP_201_CREATED)
-        else:
-            return Response(s_obj.errors,status=HTTP_400_BAD_REQUEST)
+        elif request.data['role']=="PATIENT":
+            print(request.data)
+            username=request.data['firstname']+'_'+request.data['lastname']
+            email=request.data['email']
+            password=request.data['password']
+            role=request.data['role']
+            u_obj=Users.objects.create(username=username,email=email,password=password,role=role)
+            patient_id=u_obj.user_id
+            Patient.objects.create(patient_id=patient_id,first_name=request.data['firstname'],last_name=request.data['lastname'],gender=request.data['gender'],date_of_birth=request.data['dob'],phone=request.data['phoneno'],address=request.data['address'],blood_group=request.data['bloodgroup'],created_at=request.data['created'])
+            return Response(status=HTTP_201_CREATED)
 
 class LoginCheck(APIView):
     def get(self,request):

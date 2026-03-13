@@ -1,15 +1,31 @@
 .registerpage{
     background-color: rgb(146, 146, 150,0.4);
-    height: 50vh;
+    height:max-content ;
     width: 30vw;
     text-align: center;
     align-content: center;
-    margin-top: 20vh;
+    margin-top: 5vh;
+    padding: 20px 20px;
 
 }
-.registerpage input{
+.registerpage input[type=text]{
     height: 5vh;
     width: 23vw;
+}
+.registerpage input[type=number]{
+    height: 5vh;
+    width: 23vw;
+}
+.registerpage input[type=email]{
+    height: 5vh;
+    width: 23vw;
+}
+.registerpage input[type=password]{
+    height: 5vh;
+    width: 23vw;
+}
+.registerpage input [type=radio]{
+    height: 1vh;
 }
 .registerpage input:focus{
     border: none;
@@ -30,4 +46,5 @@
     border-radius: 20px;
     border: none;
     cursor: pointer;
+    margin-top: 10px;
 }
